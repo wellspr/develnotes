@@ -1,13 +1,10 @@
 import PageTemplate from "../../../components/PageTemplate";
-import { useRouter } from "next/router";
 import { postsApi } from "../../../api";
 import PostFrame from "../../../components/PostFrame";
 
 const Post = (props) => {
-
-    const router = useRouter();
     const head = {
-        title: router.query.postId
+        title: props.post.title
     };
 
     const { post } = props;
@@ -24,9 +21,6 @@ const Post = (props) => {
 export default Post;
 
 export const getServerSideProps = async (context) => {
-
-    console.log("CONTEXT: ", context);
-
     const request = await postsApi.get(`/post/${context.params.postId}`);
     const post = request.data.response;
 

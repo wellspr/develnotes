@@ -34,8 +34,6 @@ export const getServerSideProps = async () => {
 
     const posts = request.data.response;
 
-    console.log(posts);
-
     return {
         props: {
             posts
