@@ -1,0 +1,4 @@
+/* Remove caret from dropdown */
+.userDropdown.dropdown-toggle::after {
+    display: none !important;
+}
